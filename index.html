@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-image" href="images/clikaby_logo.png"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <title>CLIKABY</title>
+</head>
+<body>
+
+
+
+<!--############################### NAVBAR STARTING ######################################################-->
+<section id="navbar">
+        <div id="logo"><img src="images/111.png" loading="lazy"></div>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <div id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Old Books</a></li>
+                <li><a href="#">Plant</a></li>
+                <li><a href="#" onclick="Rqb()">Request a book</a></li>
+            </ul>
+        </div>
+    </section>
+<!--############################### NAVBAR END ######################################################-->
+
+
+<!--##################################################################################################
+    ##################################################################################################
+    #############################                                   ##################################
+    #############################             POP UP                ##################################
+    #############################                                   ##################################
+    ##################################################################################################
+    ##################################################################################################-->
+
+
+
+
+ <!-- ################################## ORDER FORM STARTTING HERE #########################################-->
+<div id="orderForm" style="display: none;">
+<div class="userFrom">
+   <form action="https://formsubmit.co/8ef3db6da3dcff48558b0a50c35f6b99" method="POST">
+      <h3 id="orderNow" style="text-align: center; margin: 0; padding: 0;
+      color: white;"></h3>
+       <div>
+        <input type="text" class="" name="Name" id="Name" placeholder="Full Name" required=""
+        style="text-transform: uppercase;" minlength="6"  maxlength="40">
+      </div>
+      <div>
+        <input type="email" class="" name="Email" id="Sender" placeholder="Email" minlength="4"
+        maxlength="40">
+      </div>
+      <div>
+          <input type="text" class="" name="Phone no" id="number" placeholder="Mobile no."
+         pattern="[1-9]{1}[0-9]{9}" required>
+      </div>
+       <div>
+        <input type="text" class="" name="Address" id="FullAddress" placeholder="Full Address" required 
+        minlength="15"  maxlength="100">
+      </div>
+      <div>
+        <input type="text" class="" name="Landmark" id="Landmark" placeholder="Nearest Rail Station" required
+        minlength="4"  maxlength="25">
+      </div>
+      <div>
+        <input type="text" class="" name="Pin" id="Pin_no" placeholder="Pin code" required 
+        minlength="6" maxlength="6">
+      </div>
+      <div style="display: flex; justify-content: space-between; margin: 7px 0 5px 0;">
+        <label for="City" class="City_mother">Choose your city</label>
+        <select class="City" name="City">
+          <option value="Akaipur">Akaipur</option>
+          <option value="Ashoknagar">Ashoknagar</option>
+          <option value="Bamangachhi">Bamangachhi</option>
+          <option value="Bagdah">Bagdah</option>
+          <option value="Barasat">Barasat</option>
+          <option value="Bira">Bira</option>
+          <option value="Bongaon">Bongaon</option>
+          <option value="Chakdah">Chakdah</option>
+          <option value="Chandpara">Chandpara</option>
+          <option value="Duttapukur">Duttapukur</option>
+          <option value="Dattyaphulia">Dattyaphulia</option>
+          <option value="Gangnapur">Gangnapur</option>
+          <option value="Gobardanga">Gobardanga</option>
+          <option value="Gopalnagar">Gopalnagar</option>
+          <option value="Habrah">Habrah</option>
+          <option value="Madanpur">Madanpur</option>
+          <option value="Machlandapur">Machlandapur</option>
+          <option value="Majhergram">Majhergram</option>
+          <option value="Ranaghat">Ranaghat</option>
+        </select>
+      </div>
+      <div>
+        <input style="display: none;" type="text" id="producName" name="Product Name" value="" readonly> 
+     </div>
+     <div>
+      <input style="display: none;" type="text" id="productId" name="Product Id" value="" readonly> 
+   </div>
+     <div>
+      <input style="display: none;" type="text" id="productPrice" name="Product Price" value="" readonly> 
+   </div>
+   <div style="display: flex; justify-content: space-between;">
+    <input type="number" id="productQ" name="Quantity" placeholder="Quantity" onchange="update()" onkeyup="update()" min="1" max="50" required> 
+    <input type="text" id="totalPrice" name="Total Price" placeholder="Total" readonly> 
+ </div>
+      <div style="display: flex; align-items: center; justify-content: center;"> 
+      <button type="submit" class="btn2">Buy</button>
+      <!-- ####################################################################################################################-->
+      <div id="close" style="border-radius: 10px"><i class="fa fa-remove" onclick="closefun()"></i></div>
+      <!-- ####################################################################################################################-->
+      
+   </div>
+    </form>
+</div>
+     
+
+      <!--DIRECT ORDER-->
+<div class="moreBuy" style="display: flex;">    
+      <button class="orBtn"><a>OR</a></button>
+      <button class="btn2"><a href="tel: +916294131391">Call</a></button>
+      <button class="btn2"><a href="https://wa.me/message/VF6LM4DBIMIEJ1" target="-_blank">
+      Message</a></button>
+</div>      
+       <!--DIRECT ORDER END-->
+      
+
+</div>
+<!-- ################################## ORDER FORM END HERE #########################################-->
+
+
+
+
+
+
+
+<!-- ################################## REQUEST A BOOK START #########################################-->
+<div id="orderForm2" style="display: none;">
+  <div class="userFrom">
+     <form action="https://formsubmit.co/8ef3db6da3dcff48558b0a50c35f6b99" method="POST">
+      <h3 style="text-align: center; margin: 0; padding: 0;
+      color: white;">Request a book</h3>
+      <div>
+        <input style="display: none;" type="text" class="" name="FORM TYPE" value="REQUEST A BOOK" readonly >
+      </div>
+         <div>
+          <input type="text" class="" name="Name"  placeholder="Full Name" required=""
+          style="text-transform: uppercase;" minlength="6"  maxlength="40">
+        </div>
+        <div>
+          <input type="email" class="" name="Email" placeholder="Email" minlength="4"
+          maxlength="40">
+        </div>
+        <div>
+            <input type="text" class="" name="Phone no" placeholder="Mobile no."
+           pattern="[1-9]{1}[0-9]{9}" required>
+        </div>
+         <div>
+          <input type="text" id="FullAddress2" name="Address" placeholder="Full Address" required 
+          minlength="15"  maxlength="100">
+        </div>
+        <div>
+          <input type="text" class="" name="Landmark" placeholder="Nearest Rail Station" required
+          minlength="4"  maxlength="25">
+        </div>
+        <div>
+          <input type="text" class="" name="Pin" placeholder="Pin code" required 
+          minlength="6" maxlength="6">
+        </div>
+        <div style="display: flex; justify-content: space-between; margin: 7px 0 5px 0;">
+          <label for="City" class="City_mother">Choose your city</label>
+          <select class="City" name="City">
+            <option value="Akaipur">Akaipur</option>
+            <option value="Ashoknagar">Ashoknagar</option>
+            <option value="Bamangachhi">Bamangachhi</option>
+            <option value="Bagdah">Bagdah</option>
+            <option value="Barasat">Barasat</option>
+            <option value="Bira">Bira</option>
+            <option value="Bongaon">Bongaon</option>
+            <option value="Chakdah">Chakdah</option>
+            <option value="Chandpara">Chandpara</option>
+            <option value="Duttapukur">Duttapukur</option>
+            <option value="Dattyaphulia">Dattyaphulia</option>
+            <option value="Gangnapur">Gangnapur</option>
+            <option value="Gobardanga">Gobardanga</option>
+            <option value="Gopalnagar">Gopalnagar</option>
+            <option value="Habrah">Habrah</option>
+            <option value="Madanpur">Madanpur</option>
+            <option value="Machlandapur">Machlandapur</option>
+            <option value="Majhergram">Majhergram</option>
+            <option value="Ranaghat">Ranaghat</option>
+          </select>
+        </div>
+        <div>
+          <input type="text" placeholder="Product name" name="Product_Name" value="" required> 
+       </div>
+     <div style="display: flex; justify-content: space-between;">
+      <input type="text" id="Author" placeholder="Author name" name="Author_name" value="" required>  
+      <input type="number" id="productQ2" name="Quantity" placeholder="Quantity" min="1" max="1000" required>
+   </div>
+        <div style="display: flex; align-items: center; justify-content: center;"> 
+        <button type="submit" class="btn2">Order</button>
+        <!-- ####################################################################################################################-->
+        <div id="close2" style="border-radius: 10px"><i class="fa fa-remove" onclick="closefun2()"></i></div>
+        <!-- ####################################################################################################################-->
+        
+     </div>
+      </form>
+  </div>
+       
+  
+        <!--DIRECT ORDER-->
+  <div class="moreBuy" style="display: flex;">    
+        <button class="orBtn"><a>OR</a></button>
+        <button class="btn2"><a href="tel: +916294131391">Call</a></button>
+        <button class="btn2"><a href="https://wa.me/message/VF6LM4DBIMIEJ1" target="-_blank">
+        Message</a></button>
+  </div>      
+         <!--DIRECT ORDER END-->
+        
+  
+  </div>
+  <!-- ################################## REQUEST A BOOK  END #########################################-->
+
+<!-- ################################## SOLD POP UP #########################################-->
+<div id="SOLD" style="display: none;"><P style="width: 100%;">SOLD</P>
+  <div id="close3" style="border-radius: 10px"><i class="fa fa-remove" onclick="closefun3()"></i></div>
+</div>
+
+  <!-- ################################## SOLD POP UP  END #########################################-->
+
+
+
+
+
+  
+<!--##########################STARTING RUNNING IMAGES###########################################-->
+
+<section id="superOffers">
+
+  <div class="carousel" data-flickity='{"autoPlay": true, "imagesLoaded":true }'>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 1.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+     <img src="images/slide_offers/slide 2.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 6.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 4.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 5.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 3.jpg" alt="" loading="lazy">
+    </div>
+    <div class="carousel-cell">
+      <img src="images/slide_offers/slide 7.jpg" alt="" loading="lazy">
+    </div>							      
+								      
+  </div>
+
+	
+
+</section>
+<!--########################## END RUNNING IMAGES###########################################-->
+
+
+
+
+
+
+
+
+
+<!--##################################################################################################
+    ##################################################################################################
+    #############################                                   ##################################
+    #############################  BOOK OPTIONS STARTING FROM HERE  ##################################
+    #############################                                   ##################################
+    ##################################################################################################
+    ##################################################################################################-->
+
+
+
+
+
+
+
+<!--############################### MOTHER BOOK OPTIONS START ######################################################-->
+<h1 class="txalcn wdhn" style="margin-top: 100px;">Order Your Books Frome Bellow</h1>
+<section class="BookOptionMother"> <!-- BOOK OPTION MOTHER START FOR UL AND LI -->
+<section id="MotherOptions">
+  <ul>
+    <li id="CompetativeExame" onclick="Mother_Fun1()">
+        <a href="#BookOptionsCompetative">Competative Exame</li>
+
+    <li id="SchoolBooks" onclick="Mother_Fun2()">
+        <a href="#BookOptionsSchool">School Books</li>
+
+    <li id="TechnicalBooks" onclick="Mother_Fun3()">
+        <a href="#BookOptionsTechnical">Technical Books</li>
+</ul>
+</section>
+
+<!-- ################################## MOTHER BOOK CATAGORY END ################################## -->
+
+
+
+
+
+
+
+
+
+<!-- ################################## COMPETATIVE BOOK CATAGORY START ################################## -->
+<section id="BookOptionsCompetative" style="display: none; margin-top: 100px;">
+    <ul>
+        <li id="Police" onclick="Cmpt_Fun1()">
+            <a href="#Cmpt_id1">Police</li>
+
+        <li id="Ssc" onclick="Cmpt_Fun2()">
+            <a href="#Cmpt_id2">Ssc</li>
+
+        <li id="Rail" onclick="Cmpt_Fun3()">
+            <a href="#Cmpt_id3">Rail</li>
+
+        <li id="Wbcs" onclick="Cmpt_Fun4()">
+            <a href="#Cmpt_id4">Wbcs</li>
+
+        <li id="Mts" onclick="Cmpt_Fun5()">
+            <a href="#Cmpt_id5">Mts</li>
+
+        <li id="Tet" onclick="Cmpt_Fun6()">
+            <a href="#Cmpt_id6">Tet</li>
+
+        <li id="Upsc" onclick="Cmpt_Fun7()">
+            <a href="#Cmpt_id7">Upsc</a></li>
+
+        <li id="Post_office" onclick="Cmpt_Fun8()">
+            <a href="#Cmpt_id8">Post office</a></li>
+
+        <li id="Bank" onclick="Cmpt_Fun9()">
+            <a href="#Cmpt_id9">Bank</a></li>
+    </ul>
+</section>
+<!--############################### COMPETATIVE BOOK OPTIONS END ######################################################-->
+
+
+
+
+<!-- ################################## SCHOOL BOOK CATAGORY START ################################## -->
+<section id="BookOptionsSchool" style="display: none; margin-top: 100px;">
+  <ul>
+      <li id="Class4" onclick="Schl_Fun1()">
+          <a href="#Schl_Class_4">Class 4</li>
+
+      <li id="Class5" onclick="Schl_Fun2()">
+          <a href="#Schl_Class_5">Class 5</li>
+
+      <li id="Class6" onclick="Schl_Fun3()">
+          <a href="#Schl_Class_6">Class 6</li>
+
+      <li id="Class7" onclick="Schl_Fun4()">
+          <a href="#Schl_Class_7">Class 7</li>
+
+      <li id="Class8" onclick="Schl_Fun5()">
+          <a href="#Schl_Class_8">Class 8</li>
+
+      <li id="Class9" onclick="Schl_Fun6()">
+          <a href="#Schl_Class_9">Class 9</li>
+
+      <li id="Class10" onclick="Schl_Fun7()">
+          <a href="#Schl_Class_10">Class 10</a></li>
+
+      <li id="Class11" onclick="Schl_Fun8()">
+          <a href="#Schl_Class_11">Class 11</a></li>
+
+      <li id="Class12" onclick="Schl_Fun9()">
+          <a href="#Schl_Class_12">Class 12</a></li>
+  </ul>
+</section>
+<!--############################### SCHOOL BOOK OPTIONS END ######################################################-->
+
+
+<!-- ################################## TECHNICAL BOOK CATAGORY START ################################## -->
+<section id="BookOptionsTechnical" style="display: none; margin-top: 100px;">
+  <ul>
+      <li id="Mechanical" onclick="Tec_Fun1()">
+          <a href="#Mechanical_books">Mechanical</a></li>
+
+      <li id="Civil" onclick="Tec_Fun2()">
+          <a href="#Civil_books">Civil</a></li>
+
+
+
+      <li id="Automobile" onclick="Tec_Fun3()">
+          <a href="#Automobile_Books">Automobile</a></li>
+
+      <li id="ComputerScience" onclick="Tec_Fun4()">
+          <a href="#ComputerScience_books">Computer Science</a></li>
+
+      <li id="Electrical" onclick="Tec_Fun5()">
+          <a href="#Electrical_books">Electrical</a></li>
+  </ul>
+</section>
+</section> <!--BookOptionsMother END-->
+<!--############################### TECHNICAL BOOK OPTIONS END ######################################################-->
+
+
+
+
+
+
+
+
+
+
+<!--##################################################################################################
+    ##################################################################################################
+    #############################                                   ##################################
+    #############################   BOOK LIST STARTING FROM HERE    ##################################
+    #############################      1)   COMPETATIVE             ##################################
+    ##################################################################################################
+    ##################################################################################################-->
+
+
+
+
+
+
+
+
+
+
+<!--############################################ WBP ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id1" class="boxMother">
+    <h1 class="wdhn txalcn">All books for wbp</h1>
+
+
+
+    <div class="box">
+      <div class="imgBox"><img src="images/competative/english/From Plinth to Paramount.jpg" loading="lazy">
+        <div class="imgCont">
+         <img src="images/bookbg.jpg" loading="lazy">
+          </div>
+           </div>
+              <div class="priceBox">
+                <div class="prnm">From Plinth to Paramount</div>
+                 <div class="pbd">
+                  <div class="dcnt r">50% off</div>
+                 <div class="rp l">3500</div>
+                 <div class="Rs">Rs:</div>
+                <div class="adp">1750</div>
+               </div>
+              <div class="bn">
+            <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+          <div class="tg">ID: SK5896</div>
+        </div>
+      <button id="bn" onclick="sold(this)">Buy now</button></div>
+    </div>
+    
+    
+    
+   
+    
+
+
+
+
+</section>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+<!--############################################ SSC ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id2" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for ssc</h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/english/Competitive General English.jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Competitive General English</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK45845701</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+<!--############################################ RAIL ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id3" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for RAIL</h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/english/How to Prepare for Verbal Ability and Reading Comprehension.png" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">How to Prepare for Verbal Ability and Reading Comprehension</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--############################################ WBCS ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id4" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for wbcs</h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/english/Objective English for Competitive Examinations.jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Objective English for Competitive Examinations</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--############################################ MTS ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id5" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for mts</h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--############################################ TET ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id6" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for tet </h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--############################################ UPSC ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id7" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for upsc </h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--############################################ POST OFFICE ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id8" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for post office</h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>  
+  
+
+
+</section>
+
+
+
+
+<!--####################################### BANK #################################################-->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Cmpt_id9" class="boxMother">
+    
+    <h1 class="wdhn txalcn">All books for bank </h1>
+
+
+    <div class="box">
+  <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+             <div class="pbd">
+              <div class="dcnt r">10% off</div>
+             <div class="rp l">220</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">200</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: SK01</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>  
+
+
+
+</section>
+
+<!--##################################################################################################
+    ##################################################################################################
+    #############################                                   ##################################
+    #############################   School STARTING FROM HERE    ##################################
+    #############################                                   ##################################
+    ##################################################################################################
+    ##################################################################################################-->
+
+
+
+
+
+
+
+
+
+
+<!--############################################ 1) Class 4 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_4" class="boxMother">
+  <h1 class="wdhn txalcn">Books for class 4</h1>
+
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">3500</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">1750</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: SK5896</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+  
+  
+  
+ 
+  
+
+
+
+
+</section>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+<!--############################################ 2) Class 5 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_5" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 5</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK45845701</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+<!--############################################ 3) Class 6 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_6" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 6</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+<!--############################################ 4) Class 7 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_7" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 7</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+<!--############################################ 5) Class 8 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_8" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 8</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+<!--############################################ 5) Class 9 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_9" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 9</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+<!--############################################ 5) Class 10 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_10" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 10</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+<!--############################################ 5) Class 11 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_11" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 11</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+<!--############################################ 5) Class 12 ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Schl_Class_12" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Books for class 12</h1>
+
+
+  <div class="box">
+<div class="imgBox"><img src="images/competative/math/Handbook of Mathematics by Arihant Experts..jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">Handbook of Mathematics by Arihant Experts.</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">220</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">200</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: SK01</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+</section>
+
+
+
+
+<!--##################################################################################################
+    ##################################################################################################
+    #############################                                   ##################################
+    #############################   Technical STARTING FROM HERE    ##################################
+    #############################                                   ##################################
+    ##################################################################################################
+    ##################################################################################################-->
+
+
+
+
+
+
+
+
+
+
+<!--############################################ 1) Mechanical ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Mechanical_books" class="boxMother">
+  <h1 class="wdhn txalcn">Mechanical 1st sem</h1>
+
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/1st sem MATRIX-ALLbranch wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">1st sem MATRIX-ALLbranch wb</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">1500</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">750</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0001</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+  
+  
+  
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/2nd sem matrix allbranch wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">2nd sem MATRIX-ALLbranch wb</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">2000</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">1000</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0002</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/ME-3rd-Sem wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">ME-3rd-Sem wb.jpg</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">2500</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">1250</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.8 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0003</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/ME-4th-sem matrix wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">ME-4th-Sem wb.jpg</div>
+               <div class="pbd">
+                <div class="dcnt r">20% off</div>
+               <div class="rp l">1000</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">800</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.7 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0004</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/5th sem matrix ME wb.jpeg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">5th sem matrix ME wb.jpeg</div>
+               <div class="pbd">
+                <div class="dcnt r">30% off</div>
+               <div class="rp l">2000</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">1400</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0005</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Mechanical/ME-6th-Matrix wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">ME-6th-Matrix wb.jpg</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">800</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">400</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0006</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+  
+
+
+
+
+</section>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+<!--############################################ 2) civil ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Civil_books" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Civil 1st sem </h1>
+
+
+<div class="box">
+<div class="imgBox"><img src="images/technical/Civil_books/1st sem MATRIX-ALLbranch wb.jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">1st sem MATRIX-ALLbranch wb</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">700</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">630</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: TMP0007</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+
+<div class="box">
+  <div class="imgBox"><img src="images/technical/Civil_books/2nd sem matrix allbranch wb.jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">2nd sem matrix allbranch wb</div>
+             <div class="pbd">
+              <div class="dcnt r">20% off</div>
+             <div class="rp l">700</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">560</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: TMP0008</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Civil_books/Civil-3rd-Sem WB.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">Civil-3rd-Sem WB.jpg</div>
+               <div class="pbd">
+                <div class="dcnt r">50% off</div>
+               <div class="rp l">2000</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">1000</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0009</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+    </div>
+
+
+    <div class="box">
+      <div class="imgBox"><img src="images/technical/Civil_books/civil 4th sem matrix WB.jpg" loading="lazy">
+        <div class="imgCont">
+         <img src="images/bookbg.jpg" loading="lazy">
+          </div>
+           </div>
+              <div class="priceBox">
+                <div class="prnm">civil 4th sem matrix WB</div>
+                 <div class="pbd">
+                  <div class="dcnt r">40% off</div>
+                 <div class="rp l">1000</div>
+                 <div class="Rs">Rs:</div>
+                <div class="adp">600</div>
+               </div>
+              <div class="bn">
+            <div class="rtng">4.7 <i class="fa fa-star"></i></div>
+          <div class="tg">ID: TMP0010</div>
+        </div>
+      <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+      </div>
+
+
+      <div class="box">
+        <div class="imgBox"><img src="images/technical/Civil_books/5TH SEM MATRIX CIVIL WB.jpeg" loading="lazy">
+          <div class="imgCont">
+           <img src="images/bookbg.jpg" loading="lazy">
+            </div>
+             </div>
+                <div class="priceBox">
+                  <div class="prnm">5TH SEM MATRIX CIVIL WB</div>
+                   <div class="pbd">
+                    <div class="dcnt r">20% off</div>
+                   <div class="rp l">700</div>
+                   <div class="Rs">Rs:</div>
+                  <div class="adp">560</div>
+                 </div>
+                <div class="bn">
+              <div class="rtng">4.5 <i class="fa fa-star"></i></div>
+            <div class="tg">ID: TMP0011</div>
+          </div>
+        <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+        </div>
+
+
+        <div class="box">
+          <div class="imgBox"><img src="images/technical/Civil_books/Civil 6th SEM MATRIX WB.jpg" loading="lazy">
+            <div class="imgCont">
+             <img src="images/bookbg.jpg" loading="lazy">
+              </div>
+               </div>
+                  <div class="priceBox">
+                    <div class="prnm">Civil 6th SEM MATRIX WB</div>
+                     <div class="pbd">
+                      <div class="dcnt r">60% off</div>
+                     <div class="rp l">2000</div>
+                     <div class="Rs">Rs:</div>
+                    <div class="adp">800</div>
+                   </div>
+                  <div class="bn">
+                <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+              <div class="tg">ID: TMP0012</div>
+            </div>
+          <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+          </div>
+
+
+
+
+</section>
+
+
+
+
+
+<!--############################################ 3) Automobile ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Automobile_Books" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Automobile 1st sem</h1>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Civil_books/1st sem MATRIX-ALLbranch wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">1st sem MATRIX-ALLbranch wb</div>
+               <div class="pbd">
+                <div class="dcnt r">10% off</div>
+               <div class="rp l">700</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">630</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0007</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+    </div>
+    
+    <div class="box">
+      <div class="imgBox"><img src="images/technical/Civil_books/2nd sem matrix allbranch wb.jpg" loading="lazy">
+        <div class="imgCont">
+         <img src="images/bookbg.jpg" loading="lazy">
+          </div>
+           </div>
+              <div class="priceBox">
+                <div class="prnm">2nd sem matrix allbranch wb</div>
+                 <div class="pbd">
+                  <div class="dcnt r">20% off</div>
+                 <div class="rp l">700</div>
+                 <div class="Rs">Rs:</div>
+                <div class="adp">560</div>
+               </div>
+              <div class="bn">
+            <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+          <div class="tg">ID: TMP0008</div>
+        </div>
+      <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+      </div>
+
+
+
+</section>
+
+
+<!--############################################ 4) computer science ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="ComputerScience_books" class="boxMother">
+  
+  <h1 class="wdhn txalcn">computer science 1st sem</h1>
+
+
+ <div class="box">
+<div class="imgBox"><img src="images/technical/Computer_science/1st sem MATRIX-ALLbranch wb.jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">1st sem MATRIX-ALLbranch wb</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">700</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">630</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: TMP0019</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+
+<div class="box">
+  <div class="imgBox"><img src="images/technical/Computer_science/2nd sem matrix allbranch wb.jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">2nd sem matrix allbranch wb</div>
+             <div class="pbd">
+              <div class="dcnt r">20% off</div>
+             <div class="rp l">700</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">560</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: TMP0020</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Computer_science/CST-3rd-Sem WB.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">CST-3rd-Sem WB</div>
+               <div class="pbd">
+                <div class="dcnt r">20% off</div>
+               <div class="rp l">700</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">560</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0021</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+    </div>
+
+
+    <div class="box">
+      <div class="imgBox"><img src="images/technical/Computer_science/CST 4TH SEM MATRIX WB.jpg" loading="lazy">
+        <div class="imgCont">
+         <img src="images/bookbg.jpg" loading="lazy">
+          </div>
+           </div>
+              <div class="priceBox">
+                <div class="prnm">CST 4TH SEM MATRIX WB</div>
+                 <div class="pbd">
+                  <div class="dcnt r">20% off</div>
+                 <div class="rp l">700</div>
+                 <div class="Rs">Rs:</div>
+                <div class="adp">560</div>
+               </div>
+              <div class="bn">
+            <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+          <div class="tg">ID: TMP0022</div>
+        </div>
+      <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+      </div>
+
+
+      <div class="box">
+        <div class="imgBox"><img src="images/technical/Computer_science/CST (IT) 5th Semester MATRIX (Polytechnic) WB.jpg" loading="lazy">
+          <div class="imgCont">
+           <img src="images/bookbg.jpg" loading="lazy">
+            </div>
+             </div>
+                <div class="priceBox">
+                  <div class="prnm">CST (IT) 5th Semester MATRIX (Polytechnic) WB</div>
+                   <div class="pbd">
+                    <div class="dcnt r">20% off</div>
+                   <div class="rp l">700</div>
+                   <div class="Rs">Rs:</div>
+                  <div class="adp">560</div>
+                 </div>
+                <div class="bn">
+              <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+            <div class="tg">ID: TMP0023</div>
+          </div>
+        <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+        </div>
+
+
+        <div class="box">
+          <div class="imgBox"><img src="images/technical/Computer_science/CST 6TH SEM MATRIX WB.jpeg" loading="lazy">
+            <div class="imgCont">
+             <img src="images/bookbg.jpg" loading="lazy">
+              </div>
+               </div>
+                  <div class="priceBox">
+                    <div class="prnm">CST 6TH SEM MATRIX WB</div>
+                     <div class="pbd">
+                      <div class="dcnt r">20% off</div>
+                     <div class="rp l">700</div>
+                     <div class="Rs">Rs:</div>
+                    <div class="adp">560</div>
+                   </div>
+                  <div class="bn">
+                <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+              <div class="tg">ID: TMP0024</div>
+            </div>
+          <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+          </div>
+
+
+</section>
+
+
+<!--############################################ 5) Electrical ######################################################## -->
+<!--########################################################################################################################-->
+
+<section style="display: none;" id="Electrical_books" class="boxMother">
+  
+  <h1 class="wdhn txalcn">Electrical 1st sem</h1>
+
+
+<div class="box">
+<div class="imgBox"><img src="images/technical/Electrical/1st sem MATRIX-ALLbranch wb.jpg" loading="lazy">
+  <div class="imgCont">
+   <img src="images/bookbg.jpg" loading="lazy">
+    </div>
+     </div>
+        <div class="priceBox">
+          <div class="prnm">1st sem MATRIX-ALLbranch wb</div>
+           <div class="pbd">
+            <div class="dcnt r">10% off</div>
+           <div class="rp l">700</div>
+           <div class="Rs">Rs:</div>
+          <div class="adp">630</div>
+         </div>
+        <div class="bn">
+      <div class="rtng">4.9 <i class="fa fa-star"></i></div>
+    <div class="tg">ID: TMP0025</div>
+  </div>
+<button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+</div>
+
+<div class="box">
+  <div class="imgBox"><img src="images/technical/Electrical/2nd sem matrix allbranch wb.jpg" loading="lazy">
+    <div class="imgCont">
+     <img src="images/bookbg.jpg" loading="lazy">
+      </div>
+       </div>
+          <div class="priceBox">
+            <div class="prnm">2nd sem matrix allbranch wb</div>
+             <div class="pbd">
+              <div class="dcnt r">20% off</div>
+             <div class="rp l">700</div>
+             <div class="Rs">Rs:</div>
+            <div class="adp">560</div>
+           </div>
+          <div class="bn">
+        <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+      <div class="tg">ID: TMP0026</div>
+    </div>
+  <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+  </div>
+
+
+
+  <div class="box">
+    <div class="imgBox"><img src="images/technical/Electrical/EE-3rd-Sem wb.jpg" loading="lazy">
+      <div class="imgCont">
+       <img src="images/bookbg.jpg" loading="lazy">
+        </div>
+         </div>
+            <div class="priceBox">
+              <div class="prnm">EE-3rd-Sem wb</div>
+               <div class="pbd">
+                <div class="dcnt r">20% off</div>
+               <div class="rp l">700</div>
+               <div class="Rs">Rs:</div>
+              <div class="adp">560</div>
+             </div>
+            <div class="bn">
+          <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+        <div class="tg">ID: TMP0027</div>
+      </div>
+    <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+    </div>
+
+
+    <div class="box">
+      <div class="imgBox"><img src="images/technical/Electrical/ee 4th sem matrix wb.jpg" loading="lazy">
+        <div class="imgCont">
+         <img src="images/bookbg.jpg" loading="lazy">
+          </div>
+           </div>
+              <div class="priceBox">
+                <div class="prnm">ee 4th sem matrix wb</div>
+                 <div class="pbd">
+                  <div class="dcnt r">20% off</div>
+                 <div class="rp l">700</div>
+                 <div class="Rs">Rs:</div>
+                <div class="adp">560</div>
+               </div>
+              <div class="bn">
+            <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+          <div class="tg">ID: TMP0028</div>
+        </div>
+      <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+      </div>
+
+
+      <div class="box">
+        <div class="imgBox"><img src="images/technical/Electrical/EE 5th Semester MATRIX (Polytechnic) wb.jpg" loading="lazy">
+          <div class="imgCont">
+           <img src="images/bookbg.jpg" loading="lazy">
+            </div>
+             </div>
+                <div class="priceBox">
+                  <div class="prnm">EE 5th Semester MATRIX (Polytechnic) wb</div>
+                   <div class="pbd">
+                    <div class="dcnt r">50% off</div>
+                   <div class="rp l">700</div>
+                   <div class="Rs">Rs:</div>
+                  <div class="adp">350</div>
+                 </div>
+                <div class="bn">
+              <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+            <div class="tg">ID: TMP0029</div>
+          </div>
+        <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+        </div>
+
+
+        <div class="box">
+          <div class="imgBox"><img src="images/technical/Electrical/ee-6th-matrix-polytechnic wb.jpg" loading="lazy">
+            <div class="imgCont">
+             <img src="images/bookbg.jpg" loading="lazy">
+              </div>
+               </div>
+                  <div class="priceBox">
+                    <div class="prnm">ee-6th-matrix-polytechnic wb</div>
+                     <div class="pbd">
+                      <div class="dcnt r">20% off</div>
+                     <div class="rp l">700</div>
+                     <div class="Rs">Rs:</div>
+                    <div class="adp">560</div>
+                   </div>
+                  <div class="bn">
+                <div class="rtng">4.3 <i class="fa fa-star"></i></div>
+              <div class="tg">ID: TMP0030</div>
+            </div>
+          <button id="bn" onclick="ordrnw(this)">Buy now</button></div>
+          </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--##################################### FOTTER STARTING ################################################################-->
+<section>
+
+  <div id="about" class="downCont">
+    <div class="left-image"><img src="images/logo.png" loading="lazy"></div>
+    <div class="dia">
+      <h1 style="color: var(--primary)">Welcome to CLIKABY</h1>
+      <p>Here you can find best products at very low price. The quality of products is top level. There you can find no edited real photos of products. That means what you wants, you'll get absolute that products. Book your selected products and get it safe, secure, fast and free home delivery with customer service (24×7)</p>
+      <p>Start shoping for you and your relatives. Don't worry about product quality, we promise you the best quality products.<span id="spof"></span></p>
+    </div>
+  </div>
+
+
+
+  <div class="lnks" style="font-size: 10px;">
+    <div class="lnksChld">
+      <h3 class="txalcn">Contact Us</h3>
+      <ol type="number">
+        <li><a href="">
+        Facebook</a></li>
+        <li><a href="https://wa.me/message/VF6LM4DBIMIEJ1" target="-_blank">
+        Whatsapp</a></li>
+        <li><a href="tel: +916294353611">
+        Call</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Mail</a></li>
+      </ol>
+    </div>
+
+    <div class="lnksChld">
+      <h3 class="txalcn">Report a Problem</h3>
+      <ol type="number">
+        <li><a href="mailto: Clikaby@gmail.com">
+        Return Product</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Website Problem</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Spam Counter</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Bugs</a></li>
+      </ol>
+    </div>
+
+    <div class="lnksChld">
+      <h3 class="txalcn">Our Partners</h3>
+      <ol type="number">
+        <li><a href="">Shops</a></li>
+        <li><a href="">Halls</a></li>
+        <li><a href="">Managers</a></li>
+        <li><a href="">Workers</a></li>
+      </ol>
+    </div>
+
+    <div class="lnksChld">
+      <h3 class="txalcn">Our Open Jobs</h3>
+      <ol type="number">
+        <li><a href="mailto: Clikaby@gmail.com">
+        Become Our Partner</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Suggest Us</a></li>
+        <li><a href="mailto: Clikaby@gmail.com">
+        Open Jobs</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+
+<div class="copyright">
+        This Is A Registered Private E-comerce Website. © Copyright 2022 All Rights Reseverd By IndBazar<br>
+        website develop credid
+         <span><a href="https://www.facebook.com/samin.sekh.7872" target="_blank"> @Samin sekh</a> </span>.
+    </div>  
+</section>
+<!--################################### FOTTER END ###################################################################-->
+
+<!--################################### SCRIPT SECTION ##########################################################################-->
+<script type="text/javaScript" src="javaScript/index.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--########################################################################################################################-->
+</body>
+</html>
