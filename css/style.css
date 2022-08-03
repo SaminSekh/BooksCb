@@ -641,7 +641,7 @@ body{
     }
     .carousel-cell {
         margin-top: 35px;
-        height: 25vh;
+        height: 20vh;
     }
     .userFrom input , #FullAddress{
         width: 90%;
@@ -706,7 +706,7 @@ body{
     }
     .carousel-cell {
         margin-top: 46px;
-        height: 45vh;
+        height: 40vh;
     }
 }
 @media screen and (min-device-width: 769px) and (max-device-width: 930px){
@@ -723,7 +723,7 @@ body{
         padding: 0 2px;
         width: 80%;
         margin-top: 46px;
-        height: 25vh;
+        height: 40vh;
     }
 }
 @media screen and (min-device-width: 930px){
@@ -731,6 +731,6 @@ body{
         padding: 0 2px;
         width: 80%;
         margin-top: 52px;
-        height: 30vh;
+        height: 40vh;
     }
 }
