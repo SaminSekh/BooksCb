@@ -729,10 +729,17 @@ body{
         margin-top: 46px;
         height: 12rem;
     }
+#FullAddress{
+        height: 30px;
+    }
     .userFrom {
         width: 80%;
         height: 100vh;
         margin-left: -114px;
+    }
+    .userFrom h3{
+        width: 15rem;
+        font-size: 1rem;
     }
     .userFrom input {
         padding: 5px 5px;
@@ -742,7 +749,7 @@ body{
     }
     .moreBuy{
         flex-direction: column;
-    }
+    } 
 }
 @media screen and (min-device-width: 769px) and (max-device-width: 930px){
     #logo{
