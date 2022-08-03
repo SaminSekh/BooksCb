@@ -676,7 +676,28 @@ body{
     .carousel-cell {
         margin-top: 35px;
         height: 10rem;
-    }    
+    }  
+    #FullAddress{
+        height: 30px;
+    }
+    .userFrom {
+        width: 80%;
+        height: 100vh;
+        margin-left: -114px;
+    }
+    .userFrom h3{
+        width: 15rem;
+        font-size: 1rem;
+    }
+    .userFrom input {
+        padding: 5px 5px;
+        margin: 2px 0px;
+        width: 100%;
+        height: 11px;
+    }
+    .moreBuy{
+        flex-direction: column;
+    }  
 }   
 @media screen and (min-device-width: 603px) and (max-device-width: 768px){
     .checkbtn{
@@ -708,6 +729,20 @@ body{
         margin-top: 46px;
         height: 12rem;
     }
+    .userFrom {
+        width: 80%;
+        height: 100vh;
+        margin-left: -114px;
+    }
+    .userFrom input {
+        padding: 5px 5px;
+        margin: 2px 0px;
+        width: 100%;
+        height: 11px;
+    }
+    .moreBuy{
+        flex-direction: column;
+    }
 }
 @media screen and (min-device-width: 769px) and (max-device-width: 930px){
     #logo{
@@ -724,6 +759,20 @@ body{
         width: 80%;
         margin-top: 46px;
         height: 15rem;
+    }
+    .userFrom {
+        width: 80%;
+        height: 100vh;
+        margin-left: -114px;
+    }
+    .userFrom input {
+        padding: 5px 5px;
+        margin: 2px 0px;
+        width: 100%;
+        height: 11px;
+    }
+    .moreBuy{
+        flex-direction: column;
     }
 }
 @media screen and (min-device-width: 930px){
